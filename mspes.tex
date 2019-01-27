@@ -1,0 +1,328 @@
+\documentclass[11pt,]{article}
+\usepackage[margin=1in]{geometry}
+\newcommand*{\authorfont}{\fontfamily{phv}\selectfont}
+\usepackage[]{mathpazo}
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+\newcommand{\blankline}{\quad\pagebreak[2]}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} 
+\usepackage{longtable,booktabs}
+
+\usepackage{parskip}
+\usepackage{titlesec}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+
+\titleformat*{\subsubsection}{\normalsize\itshape}
+
+\usepackage{titling}
+\setlength{\droptitle}{-.25cm}
+
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{6pt plus 2pt minus 1pt}
+%\setlength{\emergencystretch}{3em}  % prevent overfull lines 
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.0pt} 
+\lhead{}
+\chead{}
+\rhead{\footnotesize Le jeu de données MINST ou le \emph{Hello word} de la classification
+d'images -- Projet à rendre le 28/02/2018}
+\lfoot{}
+\cfoot{\small \thepage/\pageref*{LastPage}}
+\rfoot{}
+
+\fancypagestyle{firststyle}
+{
+\renewcommand{\headrulewidth}{0pt}%
+   \fancyhf{}
+   \fancyfoot[C]{\small \thepage/\pageref*{LastPage}}
+}
+
+%\def\labelitemi{--}
+%\usepackage{enumitem}
+%\setitemize[0]{leftmargin=25pt}
+%\setenumerate[0]{leftmargin=25pt}
+
+
+
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+}
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+\makeatother
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={ ()},
+             pdfkeywords = {},  
+            pdftitle={Le jeu de données MINST ou le \emph{Hello word} de la classification
+d'images},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+
+\setcounter{secnumdepth}{0}
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+
+
+
+
+\usepackage{setspace}
+
+\title{Le jeu de données MINST ou le \emph{Hello word} de la classification
+d'images}
+\author{Mohammed Sedki}
+\date{Projet à rendre le 28/02/2018}
+
+
+\begin{document}  
+
+		\maketitle
+		
+	
+		\thispagestyle{firststyle}
+
+%	\thispagestyle{empty}
+
+
+	\noindent \begin{tabular*}{\textwidth}{ @{\extracolsep{\fill}} lr @{\extracolsep{\fill}}}
+
+
+\textit{MSP/ES} & \textit{Apprentissage et agrégation de modèles}\\
+%Office Hours: TBD  &  Class Hours: TBD\\
+%Office: TBD  & Class Room: TBD\\
+	&  \\
+	\hline
+	\end{tabular*}
+	
+\vspace{2mm}
+	
+
+
+\section{1. Jeu de données}\label{jeu-de-donnees}
+
+L'étude de la diversité génétique humaine présente un intérêt pour
+divers domaines allant de la compréhension génétique des maladies aux
+applications en criminologie. La détection de sous-populations ou
+clusters est la clé pour la reconstruction de l'histoire démographique
+d'une population. On s'intéresse au regroupement en sous-populations
+(clustering) du jeu de données \emph{Human Genome Diversity Panel}
+disponible sur le site \url{http://www.cephb.fr/hgdp/}. Ce jeu de
+données est composé de \(1043\) individus et \(660918\) marqueurs SNP
+(bialléliques). L'accès à ce jeu de données se fait via l'installation
+du package \textsf{HGPD.CEPH} comme suit
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"HGDP.CEPH"}\NormalTok{, }\DataTypeTok{repos=}\StringTok{"https://genostats.github.io/R/"}\NormalTok{)}
+\KeywordTok{require}\NormalTok{(HGDP.CEPH)}
+\CommentTok{# lire données}
+\NormalTok{filepath <-}\KeywordTok{system.file}\NormalTok{(}\StringTok{"extdata"}\NormalTok{, }\StringTok{"hgdp_ceph.bed"}\NormalTok{, }\DataTypeTok{package=}\StringTok{"HGDP.CEPH"}\NormalTok{)}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{read.bed.matrix}\NormalTok{(filepath)}
+\CommentTok{# données SNP et individus}
+\KeywordTok{head}\NormalTok{(x}\OperatorTok{@}\NormalTok{snps)}
+\KeywordTok{head}\NormalTok{(x}\OperatorTok{@}\NormalTok{ped)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{2. Analyse en composantes
+principales}\label{analyse-en-composantes-principales}
+
+L'analyse en composantes principales est communément utilisée pour
+visualiser des groupes dans un nuage de points. Avant d'appliquer une
+telle procédure, nous avons besoin de normaliser les données. Rappelons
+que les données sont sous forme d'une matrice de tailles \((n,p)\) où
+\(n\) est le nombre d'individus observés et \(p\) le nombre de marqueurs
+observés pour chaque individu. Chaque marqueur est un SNP, qui possède
+deux allèles possibles. Ainsi, le génotype d'un marqueur particulier
+peut être codé sur la base du nombre d'allèles (0, 1 ou 2).
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Rappeler l'espérance et la variance d'un marqueur \(X_j\) observé sous
+  l'équilibre de Hardy-Weinberg. Proposer deux estimateurs intuitifs de
+  ces deux quantités.
+\item
+  Le package \textsf{gaston} propose une fonction qui automatise le
+  calcul des estimateurs de ces deux quantités sur la matrice de
+  données. Vérifier que les estimateurs calculés par cette fonction sur
+  la première colonne de la matrice de données correspondent aux
+  estimateurs proposés en réponse à la question précédente.
+\end{enumerate}
+
+On note \(\mathbf X\) la matrice de données obtenue après
+standardisation des colonnes du jeu de données. La décomposition en
+valeurs singulière de \(\mathbf X\) donnée par
+
+\[\mathbf X = U \Gamma V^t \,\] où \(\Gamma\) est une matrice diagonale
+formée par les valeurs dites \emph{sigulières}
+\(\gamma_1, \gamma_2,\ldots\).
+
+On note \(S\), la matrice de covariance empirique des marqueurs de
+taille \(p \times p\) définie par
+
+\[S = \frac{1}{n-1} \mathbf X^t \mathbf X\]
+
+Les vecteurs propres \(\mathbf v_1, \mathbf v_2, \ldots\) associés aux
+valeurs propres \(\lambda_1 \ge \lambda_2 \ge \ldots\) où
+\(\lambda_i = \gamma_i^2\) sont les composantes principales\footnote{La
+  matrice \(S\) correspond à la matrice de corrélation lorsque les
+  colonnes de \(\mathbf X\) sont centrées et réduites (standardisées).}.
+En génétique des populations où \(n < p\), {[}@Cavalli{]} se sont
+intéressés à la matrice dite \emph{duale} de taille \(n\times n\) donnée
+par \[H = \frac{1}{p} \mathbf X \mathbf X^t,\] pour mettre en place une
+analyse en composantes principales. On notera \(\xi_i\) les valeurs
+propres associées à \(H\) et \(u_i\) ses vecteurs propres.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Rappeler le lien entre les éléments propres des matrices \(S\) et
+  \(H\).
+\item
+  La fonction \textsf{GRM} du package \textsf{gaston} permet le calcul
+  de la matrice \(H\). À l'aide de la fonction \textsf{select.snps},
+  restreindre l'étude aux snp autosomaux avec une fréquence de l'allèle
+  mineur strictement supérieure à \(0.05\).
+\item
+  Calculer les vecteurs propres associés à la matrice \(H\) à l'aide de
+  la fonction \textsf{eigen}. Représenter les individus du jeu de
+  données dans le premier plan factoriel. Colorier chaque point en
+  fonction de sa région indiqué dans \textsf{x@ped@region7}.
+\item
+  Regrouper le jeu de données en \(7\) groupes à l'aide d'un
+  \textsf{kmeans} sur les deux premiers vecteurs propres. Comparer la
+  partition obtenue à la partition \textsf{x@ped@region7} à l'aide d'une
+  matrice de confusion. Évaluer la correspondance entre les deux
+  partitions avec la fonction \textsf{ARI} du package
+  \textsf{VarSelLCM}.
+\end{enumerate}
+
+\section{3. Clustering spectral}\label{clustering-spectral}
+
+Pour introduire le sujet nous avons besoin du vocabulaire de la théorie
+des graphes. Pour \(n\) points, on définit un graphe \(G\) de sommets
+\(\{1,\ldots,n\}\) On associe à \(G\) une matrice \(W\) qui décrit la
+force de lien entre ses sommets : les couples de sommets \((i,j)\)
+correspondant à une grande valeur \(w_{i,j}\) sont fortement connectés.
+Les entrées nulles \(w_{i,j} = 0\) indiquent les sommets non-connectés
+de \(G\). Ce type de modélisation est d'une grande flexibilité par la
+variété de matrices de similarité qu'on peut définir sur un jeu de
+données à condition que celle-ci soit symétrique et à valeurs positives.
+L'idée du clustering spectral est de détecter les composantes connexes
+du graphe à l'aide du spectre d'un Laplacien discret. Il existe
+différentes manières de calculer un Laplacien discret sur un graphe.
+Nous allons faire appel à la version dite \emph{normalisée} donnée par
+
+\[\mathcal L =  D^{-\frac{1}{2}} L D^{-\frac{1}{2}},\] où \(L = D-W\) et
+\(D= diag(d_1, \ldots, d_n)\) est la matrice diagonale où
+\(d_i = \sum_{j=1}^n w_{ij}\) correspond au degré du sommet \(i\).
+
+L'article de {[}@lee2010{]} propose d'adopter l'approche du clustering
+spectral dans le contexte de génétique des populations. Cette approche
+permet une détection automatique du nombre de sous-populations ainsi que
+le clustering des individus.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{6}
+\item
+  Résumer l'idée à l'origine de l'heuristique du choix du nombre de
+  vecteurs propres du Laplacien ainsi que le nombre de sous-populations.
+\item
+  Reprendre le jeu de données restreint aux snp autosomaux avec une
+  fréquence de l'allèle mineur strictement supérieure à \(0.05\).
+  Implémenter la procédure décrite dans {[}@lee2010, Algorithm 1 (de 1:
+  à 7:){]}\footnote{Attention: la définition du Laplacien normalisé à
+    l'étape (3:) est erronée . Utiliser la définition donnée dans cet
+    énoncé.} en appliquant un algorithme des \textsf{kmeans} sur la
+  représentation des données obtenues. Expliciter les étapes ainsi que
+  le résultat obtenu. Comparer la partition obtenue à la partition
+  \textsf{x@ped@region7} à l'aide d'un matrice de confusion. Évaluer la
+  correspondance entre les deux partitions avec la fonction \textsf{ARI}
+  du package \textsf{VarSelLCM}. Conclure.
+\end{enumerate}
+
+
+
+
+\end{document}
+
+\makeatletter
+\def\@maketitle{%
+  \newpage
+%  \null
+%  \vskip 2em%
+%  \begin{center}%
+  \let \footnote \thanks
+    {\fontsize{18}{20}\selectfont\raggedright  \setlength{\parindent}{0pt} \@title \par}%
+}
+%\fi
+\makeatother
