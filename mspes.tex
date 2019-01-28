@@ -35,8 +35,7 @@
 \renewcommand{\footrulewidth}{0.0pt} 
 \lhead{}
 \chead{}
-\rhead{\footnotesize Le jeu de données MINST ou le \emph{Hello word} de la classification
-d'images -- Projet à rendre le 28/02/2018}
+\rhead{\footnotesize MNIST ou le \emph{Hello Word} de la classification d'images -- Projet à rendre le 28/02/2018}
 \lfoot{}
 \cfoot{\small \thepage/\pageref*{LastPage}}
 \rfoot{}
@@ -76,8 +75,7 @@ d'images -- Projet à rendre le 28/02/2018}
             bookmarks=true,
             pdfauthor={ ()},
              pdfkeywords = {},  
-            pdftitle={Le jeu de données MINST ou le \emph{Hello word} de la classification
-d'images},
+            pdftitle={MNIST ou le \emph{Hello Word} de la classification d'images},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -134,8 +132,7 @@ d'images},
 
 \usepackage{setspace}
 
-\title{Le jeu de données MINST ou le \emph{Hello word} de la classification
-d'images}
+\title{MNIST ou le \emph{Hello Word} de la classification d'images}
 \author{Mohammed Sedki}
 \date{Projet à rendre le 28/02/2018}
 
@@ -164,151 +161,66 @@ d'images}
 	
 
 
-\section{1. Jeu de données}\label{jeu-de-donnees}
+\section{1. Le jeu de données MNIST}\label{le-jeu-de-donnees-mnist}
 
-L'étude de la diversité génétique humaine présente un intérêt pour
-divers domaines allant de la compréhension génétique des maladies aux
-applications en criminologie. La détection de sous-populations ou
-clusters est la clé pour la reconstruction de l'histoire démographique
-d'une population. On s'intéresse au regroupement en sous-populations
-(clustering) du jeu de données \emph{Human Genome Diversity Panel}
-disponible sur le site \url{http://www.cephb.fr/hgdp/}. Ce jeu de
-données est composé de \(1043\) individus et \(660918\) marqueurs SNP
-(bialléliques). L'accès à ce jeu de données se fait via l'installation
-du package \textsf{HGPD.CEPH} comme suit
+Le jeu de données MNIST est hébergé sur le page web de Yann LeCun. Ce
+jeu de données sert de référence pour les compétitions en apprentissage
+où la donnée explicative est sous forme d'image. Commençons par une
+visualisation du jeu de données et plus précisémment les \(36\)
+premières images. Pour cela nous allons installer le package
+\textsf{keras} qui installe à son tour \textsf{tensorflow}. Le block de
+code suivant permet cette visualisation
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"HGDP.CEPH"}\NormalTok{, }\DataTypeTok{repos=}\StringTok{"https://genostats.github.io/R/"}\NormalTok{)}
-\KeywordTok{require}\NormalTok{(HGDP.CEPH)}
-\CommentTok{# lire données}
-\NormalTok{filepath <-}\KeywordTok{system.file}\NormalTok{(}\StringTok{"extdata"}\NormalTok{, }\StringTok{"hgdp_ceph.bed"}\NormalTok{, }\DataTypeTok{package=}\StringTok{"HGDP.CEPH"}\NormalTok{)}
-\NormalTok{x <-}\StringTok{ }\KeywordTok{read.bed.matrix}\NormalTok{(filepath)}
-\CommentTok{# données SNP et individus}
-\KeywordTok{head}\NormalTok{(x}\OperatorTok{@}\NormalTok{snps)}
-\KeywordTok{head}\NormalTok{(x}\OperatorTok{@}\NormalTok{ped)}
+\CommentTok{#install.packages("keras", dep=TRUE)}
+\KeywordTok{require}\NormalTok{(keras)}
+\NormalTok{mnist   <-}\StringTok{ }\KeywordTok{dataset_mnist}\NormalTok{()}
+\NormalTok{x_train <-}\StringTok{ }\NormalTok{mnist}\OperatorTok{$}\NormalTok{train}\OperatorTok{$}\NormalTok{x}
+\NormalTok{y_train <-}\StringTok{ }\NormalTok{mnist}\OperatorTok{$}\NormalTok{train}\OperatorTok{$}\NormalTok{y}
+\NormalTok{x_test  <-}\StringTok{ }\NormalTok{mnist}\OperatorTok{$}\NormalTok{test}\OperatorTok{$}\NormalTok{x}
+\NormalTok{y_test  <-}\StringTok{ }\NormalTok{mnist}\OperatorTok{$}\NormalTok{test}\OperatorTok{$}\NormalTok{y}
+
+\CommentTok{# visualize the digits}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfcol=}\KeywordTok{c}\NormalTok{(}\DecValTok{6}\NormalTok{,}\DecValTok{6}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{), }\DataTypeTok{xaxs=}\StringTok{'i'}\NormalTok{, }\DataTypeTok{yaxs=}\StringTok{'i'}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (idx }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{36}\NormalTok{) \{ }
+\NormalTok{  im <-}\StringTok{ }\NormalTok{x_train[idx,,]}
+\NormalTok{  im <-}\StringTok{ }\KeywordTok{t}\NormalTok{(}\KeywordTok{apply}\NormalTok{(im, }\DecValTok{2}\NormalTok{, rev)) }
+  \KeywordTok{image}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{28}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{28}\NormalTok{, im, }\DataTypeTok{col=}\KeywordTok{gray}\NormalTok{((}\DecValTok{0}\OperatorTok{:}\DecValTok{255}\NormalTok{)}\OperatorTok{/}\DecValTok{255}\NormalTok{), }
+        \DataTypeTok{xaxt=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(y_train[idx]))}
+\NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
 
-\section{2. Analyse en composantes
-principales}\label{analyse-en-composantes-principales}
+\section{Préparation des données}\label{preparation-des-donnees}
 
-L'analyse en composantes principales est communément utilisée pour
-visualiser des groupes dans un nuage de points. Avant d'appliquer une
-telle procédure, nous avons besoin de normaliser les données. Rappelons
-que les données sont sous forme d'une matrice de tailles \((n,p)\) où
-\(n\) est le nombre d'individus observés et \(p\) le nombre de marqueurs
-observés pour chaque individu. Chaque marqueur est un SNP, qui possède
-deux allèles possibles. Ainsi, le génotype d'un marqueur particulier
-peut être codé sur la base du nombre d'allèles (0, 1 ou 2).
+Afin de pouvoir mettre en place les méthodes d'apprentissage classiques,
+nous avons besoin d'applatir les images en vecteurs. Cela revient à
+transformer une image de dimension \(28 \times 28\) pixels en un vecteur
+de dimension \(784\).
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
 \item
-  Rappeler l'espérance et la variance d'un marqueur \(X_j\) observé sous
-  l'équilibre de Hardy-Weinberg. Proposer deux estimateurs intuitifs de
-  ces deux quantités.
+  Préparer le jeu de données en appliquant un applatissement ainsi
+  qu'une suppression des pixels nuls pour l'ensemble des images du jeu
+  de données. La fonction \textsf{nearZeroVar} du package \textsf{caret}
+  permet de repérer les variables de variance nulle.
 \item
-  Le package \textsf{gaston} propose une fonction qui automatise le
-  calcul des estimateurs de ces deux quantités sur la matrice de
-  données. Vérifier que les estimateurs calculés par cette fonction sur
-  la première colonne de la matrice de données correspondent aux
-  estimateurs proposés en réponse à la question précédente.
+  Le nombre de variables du jeu de données après applatissement est très
+  elevé. Proposer une procédure de réduction de dimension indépendante
+  de la méthode d'apprentissage à utiliser. La fonction
+  \textsf{preProcess} du package \textsf{caret} permet un ensemble de
+  transformation de données.
 \end{enumerate}
 
-On note \(\mathbf X\) la matrice de données obtenue après
-standardisation des colonnes du jeu de données. La décomposition en
-valeurs singulière de \(\mathbf X\) donnée par
-
-\[\mathbf X = U \Gamma V^t \,\] où \(\Gamma\) est une matrice diagonale
-formée par les valeurs dites \emph{sigulières}
-\(\gamma_1, \gamma_2,\ldots\).
-
-On note \(S\), la matrice de covariance empirique des marqueurs de
-taille \(p \times p\) définie par
-
-\[S = \frac{1}{n-1} \mathbf X^t \mathbf X\]
-
-Les vecteurs propres \(\mathbf v_1, \mathbf v_2, \ldots\) associés aux
-valeurs propres \(\lambda_1 \ge \lambda_2 \ge \ldots\) où
-\(\lambda_i = \gamma_i^2\) sont les composantes principales\footnote{La
-  matrice \(S\) correspond à la matrice de corrélation lorsque les
-  colonnes de \(\mathbf X\) sont centrées et réduites (standardisées).}.
-En génétique des populations où \(n < p\), {[}@Cavalli{]} se sont
-intéressés à la matrice dite \emph{duale} de taille \(n\times n\) donnée
-par \[H = \frac{1}{p} \mathbf X \mathbf X^t,\] pour mettre en place une
-analyse en composantes principales. On notera \(\xi_i\) les valeurs
-propres associées à \(H\) et \(u_i\) ses vecteurs propres.
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{2}
-\item
-  Rappeler le lien entre les éléments propres des matrices \(S\) et
-  \(H\).
-\item
-  La fonction \textsf{GRM} du package \textsf{gaston} permet le calcul
-  de la matrice \(H\). À l'aide de la fonction \textsf{select.snps},
-  restreindre l'étude aux snp autosomaux avec une fréquence de l'allèle
-  mineur strictement supérieure à \(0.05\).
-\item
-  Calculer les vecteurs propres associés à la matrice \(H\) à l'aide de
-  la fonction \textsf{eigen}. Représenter les individus du jeu de
-  données dans le premier plan factoriel. Colorier chaque point en
-  fonction de sa région indiqué dans \textsf{x@ped@region7}.
-\item
-  Regrouper le jeu de données en \(7\) groupes à l'aide d'un
-  \textsf{kmeans} sur les deux premiers vecteurs propres. Comparer la
-  partition obtenue à la partition \textsf{x@ped@region7} à l'aide d'une
-  matrice de confusion. Évaluer la correspondance entre les deux
-  partitions avec la fonction \textsf{ARI} du package
-  \textsf{VarSelLCM}.
-\end{enumerate}
-
-\section{3. Clustering spectral}\label{clustering-spectral}
-
-Pour introduire le sujet nous avons besoin du vocabulaire de la théorie
-des graphes. Pour \(n\) points, on définit un graphe \(G\) de sommets
-\(\{1,\ldots,n\}\) On associe à \(G\) une matrice \(W\) qui décrit la
-force de lien entre ses sommets : les couples de sommets \((i,j)\)
-correspondant à une grande valeur \(w_{i,j}\) sont fortement connectés.
-Les entrées nulles \(w_{i,j} = 0\) indiquent les sommets non-connectés
-de \(G\). Ce type de modélisation est d'une grande flexibilité par la
-variété de matrices de similarité qu'on peut définir sur un jeu de
-données à condition que celle-ci soit symétrique et à valeurs positives.
-L'idée du clustering spectral est de détecter les composantes connexes
-du graphe à l'aide du spectre d'un Laplacien discret. Il existe
-différentes manières de calculer un Laplacien discret sur un graphe.
-Nous allons faire appel à la version dite \emph{normalisée} donnée par
-
-\[\mathcal L =  D^{-\frac{1}{2}} L D^{-\frac{1}{2}},\] où \(L = D-W\) et
-\(D= diag(d_1, \ldots, d_n)\) est la matrice diagonale où
-\(d_i = \sum_{j=1}^n w_{ij}\) correspond au degré du sommet \(i\).
-
-L'article de {[}@lee2010{]} propose d'adopter l'approche du clustering
-spectral dans le contexte de génétique des populations. Cette approche
-permet une détection automatique du nombre de sous-populations ainsi que
-le clustering des individus.
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
-\setcounter{enumi}{6}
-\item
-  Résumer l'idée à l'origine de l'heuristique du choix du nombre de
-  vecteurs propres du Laplacien ainsi que le nombre de sous-populations.
-\item
-  Reprendre le jeu de données restreint aux snp autosomaux avec une
-  fréquence de l'allèle mineur strictement supérieure à \(0.05\).
-  Implémenter la procédure décrite dans {[}@lee2010, Algorithm 1 (de 1:
-  à 7:){]}\footnote{Attention: la définition du Laplacien normalisé à
-    l'étape (3:) est erronée . Utiliser la définition donnée dans cet
-    énoncé.} en appliquant un algorithme des \textsf{kmeans} sur la
-  représentation des données obtenues. Expliciter les étapes ainsi que
-  le résultat obtenu. Comparer la partition obtenue à la partition
-  \textsf{x@ped@region7} à l'aide d'un matrice de confusion. Évaluer la
-  correspondance entre les deux partitions avec la fonction \textsf{ARI}
-  du package \textsf{VarSelLCM}. Conclure.
-\end{enumerate}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y_train.freq <-}\StringTok{ }\KeywordTok{table}\NormalTok{(y_train)}
+\KeywordTok{barplot}\NormalTok{(y_train.freq)}
+\end{Highlighting}
+\end{Shaded}
 
 
 
