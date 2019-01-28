@@ -11,6 +11,7 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} 
 \usepackage{longtable,booktabs}
 
+\usepackage{bm}
 \usepackage{parskip}
 \usepackage{titlesec}
 \titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
@@ -95,37 +96,37 @@
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 
 
@@ -161,15 +162,16 @@
 	
 
 
-\section{1. Le jeu de données MNIST}\label{le-jeu-de-donnees-mnist}
+\hypertarget{le-jeu-de-donnees-mnist}{%
+\section{1.Le jeu de données MNIST}\label{le-jeu-de-donnees-mnist}}
 
 Le jeu de données MNIST est hébergé sur le page web de Yann LeCun. Ce
 jeu de données sert de référence pour les compétitions en apprentissage
 où la donnée explicative est sous forme d'image. Commençons par une
-visualisation du jeu de données et plus précisémment les \(36\)
-premières images. Pour cela nous allons installer le package
-\textsf{keras} qui installe à son tour \textsf{tensorflow}. Le block de
-code suivant permet cette visualisation
+visualisation du jeu de données et plus précisément les \(36\) premières
+images. Pour cela nous allons installer le package \textsf{keras} qui
+installe à son tour \textsf{tensorflow}. Le bloc de code suivant permet
+cette visualisation
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -193,34 +195,253 @@ code suivant permet cette visualisation
 \end{Highlighting}
 \end{Shaded}
 
-\section{Préparation des données}\label{preparation-des-donnees}
+\hypertarget{preparation-des-donnees}{%
+\section{2.Préparation des données}\label{preparation-des-donnees}}
 
 Afin de pouvoir mettre en place les méthodes d'apprentissage classiques,
-nous avons besoin d'applatir les images en vecteurs. Cela revient à
+nous avons besoin d'aplatir les images en vecteurs. Cela revient à
 transformer une image de dimension \(28 \times 28\) pixels en un vecteur
 de dimension \(784\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  Préparer le jeu de données en appliquant un applatissement ainsi
+  Préparer le jeu de données en appliquant un aplatissement\footnote{La
+    fonction \emph{array\_reshape} permet aplatir des matrices.} ainsi
   qu'une suppression des pixels nuls pour l'ensemble des images du jeu
   de données. La fonction \textsf{nearZeroVar} du package \textsf{caret}
   permet de repérer les variables de variance nulle.
 \item
-  Le nombre de variables du jeu de données après applatissement est très
-  elevé. Proposer une procédure de réduction de dimension indépendante
+  Le nombre de variables du jeu de données après aplatissement est très
+  élevé. Proposer une procédure de réduction de dimension indépendante
   de la méthode d'apprentissage à utiliser. La fonction
   \textsf{preProcess} du package \textsf{caret} permet un ensemble de
-  transformation de données.
+  transformations de données. Afficher la dimension avant et après
+  suppression et réduction de dimension et faire en sorte à ce que la
+  procédure garde les mêmes dimensions pour les deux jeux de données
+  train et test.
 \end{enumerate}
+
+\hypertarget{apprentissage-par-svm-lineaire}{%
+\section{3. Apprentissage par SVM
+linéaire}\label{apprentissage-par-svm-lineaire}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  À l'aide du package \textsf{caret}, entraîner un modèle SVM linéaire
+  avec les paramètres de contrôle suivants :
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    Pour le paramètre \(C\), on propose de tester la séquence
+    \textsf{10**(-3:0)}.
+  \item
+    Utiliser une validation croisée à \(5\) folds répétée deux
+    fois\footnote{Attention le calcul peut prendre entre 15 et 30
+      minutes}.
+  \item
+    Donner le taux de bon classement du jeu de données test.
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{apprentissage-par-reseaux-de-neurones-artificiels}{%
+\section{4. Apprentissage par réseaux de neurones
+artificiels}\label{apprentissage-par-reseaux-de-neurones-artificiels}}
+
+Les RNA sont au cœur de l'apprentissage profond (\emph{Deep Learning}).
+Ils sont polyvalents, puissants et extensibles, ce qui les rend
+parfaitement adaptés aux tâches d'apprentissage automatique extrêmement
+complexes, comme la classification de millions d'images (par exemple,
+Google Images), la reconnaissance vocale (par exemple, Apple Siri), la
+recommandation de vidéos auprès de centaines de millions d'utilisateurs
+(par exemple, YouTube) ou l'apprentissage nécessaire pour battre le
+champion du monde du jeu de go en analysant des millions de parties
+antérieures puis en jouant contre soi-même (AlphaGo de DeepMind).
+
+Nous proposons ici une introduction aux Réseaux de Neurones Artificiels,
+en commençant par une description rapide des toute première architecture
+de RNA. Nous présenterons ensuite les \emph{perceptrons multicouches}
+(PMC).
+
+\hypertarget{le-perceptron}{%
+\subsection{4.1. Le perceptron}\label{le-perceptron}}
+
+Le perceptron, inventé en 1959 par F. Rosenblatt, est l'architecture de
+RNA la plus simple. Il se fonde sur un neurone artificiel appelé unité
+linéaire à seuil (LTU, \emph{Linear Threshold Unit}). Les entrées
+correspondent aux variables explicatives et la sortie correspond à la
+prédiction de la variable à expliquer. Par analogie aux neurones
+biologiques, la LTU est un modèle qui se caractérise par une fonction
+dite \emph{d'activation} qu'on notera \(g\) et les poids des entrées. La
+sortie d'un neurone artificiel est donnée par
+\[h(x_1, \ldots, x_p) = g\left(w_0 + \sum_{j = 1}^p w_j x_j \right) = g\big(w_0 + \bm{w}^\prime \bm{x}\big).\]
+La fonction d'activation applique une transformation d'une combinaison
+linéaire des entrées pondérées par des poids \(w_0, w_1, \ldots, w_p\)
+où le poids \(w_0\) est appelé le biais du neurone. Le choix de la
+fonction d'activation \(g\) se fait selon la nature de la variable à
+expliquer \(y\) (binaire ou continue). Souvent on fait appel à une
+fonction d'activation correspondant à l'identité dans le cas d'un
+problème de régression ou la fonction d'activation softmax quand il
+s'agit d'un problème de classification\footnote{Il est fortement
+  recommandé de consulter le cours de Philippe Besse disponible
+  \href{https://www.math.univ-toulouse.fr/~besse/Wikistat/pdf/st-m-app-rn.pdf}{ici}
+  pour plus de détails.}. Entraîner une LTU revient à choisir les
+valeurs des poids \(w_0, w_1, \ldots, w_p\) appropriées par rétro
+propagation élémentaire du gradient\footnote{Le cours de Philippe Besse
+  détaille l'algorithme de rétro propagation élémentaire du gradient.}.
+
+\hypertarget{le-perceptron-multicouches}{%
+\subsection{4.2. Le perceptron
+multicouches}\label{le-perceptron-multicouches}}
+
+Les performances d'apprentissage d'un perceptron composé d'une seule LTU
+sont souvent médiocres. Il est souvent possible d'améliorer les
+performances des perceptrons en empilant plusieurs perceptrons. Le RNA
+résultant est appelé \emph{perceptron multicouche} (PMC). Un PMC est
+constitué d'une couche d'entrée (qui ne fait rien, si ce n'est
+distribuer les entrées aux neurones de la couche suivante), d'une ou
+plusieurs couches successives de LTU appelées \emph{couches cachées} et
+d'une dernière couche de LTU appelée \emph{couche de sortie}. Une couche
+est un ensemble de LTU n'ayant pas de connexion entre elles. Selon les
+auteurs, la couche d'entrée qui n'introduit aucune modification n'est
+pas comptabilisée. Une ou plusieurs couches cachées participent au
+transfert. Dans un perceptron multicouche, une LTU d'une couche cachée
+est connectée en entrée à chacune des LTU de la couche précédente et en
+sortie à chaque LTU de la couche suivante. Lorsque un perceptron
+multicouche possède deux couches cachées ou plus, on parle de réseaux de
+neurones profond (RNP) au lieu de RNA (en anglais, on parle de
+\emph{Deep Neural Network (DNN)}).
+
+\hypertarget{implementation-dun-rna-avec-une-seule-couche-cachee-avec}{%
+\section{\texorpdfstring{5. Implémentation d'un RNA avec une seule
+couche cachée avec
+\textsf{keras}}{5. Implémentation d'un RNA avec une seule couche cachée avec }}\label{implementation-dun-rna-avec-une-seule-couche-cachee-avec}}
+
+Reprenons le jeu de données après aplatissement mais sans réduction de
+dimension. Appliquons une normalisation en divisant les intensités des
+pixels par \(255\) (intensité maximale d'un pixel).
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{y_train.freq <-}\StringTok{ }\KeywordTok{table}\NormalTok{(y_train)}
-\KeywordTok{barplot}\NormalTok{(y_train.freq)}
+\KeywordTok{require}\NormalTok{(keras)}
+\NormalTok{mnist <-}\StringTok{ }\KeywordTok{dataset_mnist}\NormalTok{()}
+\NormalTok{x_train <-}\StringTok{ }\NormalTok{mnist}\OperatorTok{$}\NormalTok{train}\OperatorTok{$}\NormalTok{x}
+\NormalTok{y_train <-}\StringTok{ }\NormalTok{mnist}\OperatorTok{$}\NormalTok{train}\OperatorTok{$}\NormalTok{y}
+\NormalTok{x_test <-}\StringTok{ }\NormalTok{mnist}\OperatorTok{$}\NormalTok{test}\OperatorTok{$}\NormalTok{x}
+\NormalTok{y_test <-}\StringTok{ }\NormalTok{mnist}\OperatorTok{$}\NormalTok{test}\OperatorTok{$}\NormalTok{y}
+\NormalTok{y_train <-}\StringTok{ }\KeywordTok{to_categorical}\NormalTok{(y_train, }\DecValTok{10}\NormalTok{)}
+\NormalTok{y_test <-}\StringTok{ }\KeywordTok{to_categorical}\NormalTok{(y_test, }\DecValTok{10}\NormalTok{)}
+\CommentTok{# reshape}
+\NormalTok{x_train <-}\StringTok{ }\KeywordTok{array_reshape}\NormalTok{(x_train, }\KeywordTok{c}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(x_train), }\DecValTok{784}\NormalTok{))}
+\NormalTok{x_test <-}\StringTok{ }\KeywordTok{array_reshape}\NormalTok{(x_test, }\KeywordTok{c}\NormalTok{(}\KeywordTok{nrow}\NormalTok{(x_test), }\DecValTok{784}\NormalTok{))}
+\CommentTok{# rescale}
+\NormalTok{x_train <-}\StringTok{ }\NormalTok{x_train }\OperatorTok{/}\StringTok{ }\DecValTok{255}
+\NormalTok{x_test <-}\StringTok{ }\NormalTok{x_test }\OperatorTok{/}\StringTok{ }\DecValTok{255}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  À l'aide du package \textsf{keras}, entraîner un RNA avec une couche
+  cachée comme suit :
+
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \item
+    Le nombre de neurones (LTU) de la couche cachée est de \(784\) avec
+    la fonction d'activation \textsf{relu}\footnote{Il faut absolument
+      consulter l'aide du package
+      \href{https://keras.rstudio.com/}{\textsf{keras}} pour comprendre
+      le principe de fonctionnement et de construction des réseaux de
+      neurones avec \textsf{keras}.}. De combien de LTU a-t-on besoin à
+    la dernière couche ? préciser sa fonction d'activation.
+  \item
+    Utiliser la fonction de perte ainsi que la métrique appropriés pour
+    le contexte de la classification. Faire appel à l'algorithme
+    d'optimisation \emph{adam}. Utiliser des mini-lots de données de
+    taille \(200\) et \(10\) cycles d'apprentissage. Inclure dans la
+    procédure le jeu de données test comme jeu de données de
+    validation\footnote{La lecture de ce
+      \href{https://www.math.univ-toulouse.fr/~besse/Wikistat/pdf/st-m-hdstat-rnn-deep-learning.pdf}{document:
+      \emph{Optimization algorithms}} permet de se familiariser avec le
+      vocabulaire.}. Préciser la meilleure performance obtenue en terme
+    de taux de bon classement sur les 10 cycles d'apprentissage.
+  \end{enumerate}
+\end{enumerate}
+
+\hypertarget{apprentissage-par-reseaux-de-neurones-convolutifs}{%
+\section{6. Apprentissage par réseaux de neurones
+convolutifs}\label{apprentissage-par-reseaux-de-neurones-convolutifs}}
+
+Pour certains types de données, en particulier les images, l'utilisation
+des perceptrons multicouches impose la transformation des données sous
+forme de matrice d'intensités de pixels en vecteur. Cette transformation
+sacrifie l'information spatiale contenue dans les images, telle que les
+formes. Avant le développement de l'apprentissage par réseaux de
+neurones profonds, les algorithmes d'apprentissage faisaient appel à
+l'extraction de variables d'intérêt, appelées caractéristiques\footnote{Méthode
+  de descripteurs SIFT par exemple.}. Les réseaux de neurones
+convolutifs (CNN) introduits par \emph{LeCun 1998} ont révolutionné la
+classification d'images en contournant l'extraction manuelle des
+caractéristiques. Les CNN agissent directement sur la matrice
+d'intensités des pixels.
+
+\hypertarget{implementation-dun-reseau-de-neurones-convolutifs}{%
+\section{7. Implémentation d'un réseau de neurones
+convolutifs}\label{implementation-dun-reseau-de-neurones-convolutifs}}
+
+Reprendre le jeu de données précédent sans les transformations
+\emph{array\_reshape}\footnote{Conserver la normalisation des
+  intensités.}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\item
+  À l'aide du package \textsf{keras}, entraîner un CNN composé des
+  couches suivantes :
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Une couche de convolution 2d avec \(30\) filtres de convolution
+    ainsi qu'un noyaux d'un pas de \textsf{c(5,5)} et une fonction
+    d'activation \emph{relu}.
+  \item
+    Une couche de max-pooling 2d avec un noyau de pooling d'un pas de
+    \textsf{c(2,2)}.
+  \item
+    Une couche de convolution 2d avec \(15\) filtres de convolution
+    ainsi qu'un noyaux d'un pas de \textsf{c(3,3)} et une fonction
+    d'activation \textsf{relu}.
+  \item
+    Une couche de max-pooling 2d avec un noyau de pooling d'un pas de
+    \textsf{c(2,2)}.
+  \item
+    Une couche \emph{dropout} avec un taux d'extinction de \(30\) \%.
+  \item
+    Une couche d'aplatissement \textsf{flatten} pour aplatir les sorties
+    de la couche précédente.
+  \item
+    Une couche cachée composée de \(128\) LTU et une fonction
+    d'activation \textsf{relu}.
+  \item
+    Une couche cachée composée de \(50\) LTU et une fonction
+    d'activation \textsf{relu}.
+  \item
+    La dernière couche de sortie composée de \(10\) LTU et une fonction
+    d'activation \textsf{softmax}.
+  \end{enumerate}
+\end{enumerate}
+
+Reprendre les mêmes paramètres d'entraînement précisés dans le point b.
+de la section 5. Expliquer intuitivement le rôle de chaque couche du
+réseau.
 
 
 
