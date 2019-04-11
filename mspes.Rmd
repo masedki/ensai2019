@@ -1,28 +1,21 @@
 ---
-output: 
+title: "MNIST ou le *Hello Word* de la classification d'images"
+author: "Mohammed Sedki"
+date: "Projet à rendre le 28/02/2018"
+output:
   pdf_document:
-    keep_tex: true
     fig_caption: yes
+    keep_tex: yes
     latex_engine: pdflatex
     template: ~/codes/ensai2019/preambule.tex
+  html_document:
+    df_print: paged
 geometry: margin=1in
-#biblio-style: "natbib"
-#bibliography: biblio.bib
-title: "MNIST ou le *Hello Word* de la classification d'images"
-author: Mohammed Sedki
-date: "Projet à rendre le 28/02/2018"
-
-master: "MSP/ES"
-universite: "Apprentissage et agrégation de modèles"
-#officehours: "W 09:00-11:30 a.m."
-#office: "230A Brackett Hall"
-#classroom: "*online*"
-#classhours: "TR 02:00-03:45 p.m."
-
-fontfamily: mathpazo
+header-includes: \linespread{1.05}
+master: MSP/ES
 fontsize: 11pt
-header-includes:
-   - \linespread{1.05}
+fontfamily: mathpazo
+universite: Apprentissage et agrégation de modèles
 ---
 
 # 1.Le jeu de données MNIST 
