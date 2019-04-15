@@ -45,7 +45,7 @@ summary(y_train)
 
 
 
-##2.Pr?paration des donn?es-----
+##2.Préparation des données-----  1.5 + 0.75 = 2.25
 #2.1 reshape
 x_train <- keras::array_reshape(x_train, c(nrow(x_train), 784))  #.... 0.5
 x_test <- keras::array_reshape(x_test, c(nrow(x_test), 784)) #.... 0.5 
@@ -74,7 +74,7 @@ test <- data.frame(x_test_pred,y_test)
 
 
 
-##3. Apprentissage par SVM lin?aire-----
+##3. Apprentissage par SVM lin?aire----- # ... total = 2.5 
 
 
 # Utiliser une validation crois?e ? 5 folds r?p?t?e deux fois2.
@@ -96,7 +96,7 @@ ratePredict <- mean(predictTest == y_test)
 ##4. Apprentissage par r?seaux de neurones artificiels-----
 
 
-##5. Impl?mentation d'un RNA avec une seule couche cach?e avec keras-----
+##5. Impl?mentation d'un RNA avec une seule couche cach?e avec keras-----   4.5 + 0.5 = 5  
 require(keras)
 mnist <- dataset_mnist()
 x_train <- mnist$train$x
@@ -154,26 +154,26 @@ x_test <- x_test / 255
 model <- keras_model_sequential()
 
 
-model %>% 
+model %>%  # 0 + (9*0.25) + 1 + 1 + 0.5  + 0.5  = 5.25
   # 1. la couche de convolution sort des images de dimension 28*28 sur une seule couleur avec un noyau de convolution de 5*5 ... NON
   layer_conv_2d(filters = 30, kernel_size = c(5,5), activation = "relu", input_shape = c(28,28,1)) %>% #... 0.25 
-  # 2. la couche de maxpooling r?duit la dimension (ici de moiti? en largeur et longueur)  ... 
-  layer_max_pooling_2d(pool_size = c(2,2)) %>% #
+  # 2. la couche de maxpooling r?duit la dimension (ici de moiti? en largeur et longueur)#  ... 1 
+  layer_max_pooling_2d(pool_size = c(2,2)) %>% # ... 0.25   
   # avec 3 et 4 qui r?p?tent 1 et 2, on continue ? compresser l'image
   # 3. convolution
-  layer_conv_2d(filters = 15, kernel_size = c(3,3), activation = "relu") %>%
+  layer_conv_2d(filters = 15, kernel_size = c(3,3), activation = "relu") %>% # ... 0.25 
   # 4. maxpooling
-  layer_max_pooling_2d(pool_size = c(2,2)) %>%
-  # 5. dropout pour ?viter le surapprentissage
-  layer_dropout(rate = 0.3) %>% 
-  # 6. on applatit la matrice de pixels dans le m?me but qu'au d?but du tp
-  layer_flatten() %>% 
-  # 7. on fait un r?seau de neurones pour terminer avec deux "relu" qui vont acc?ler la convergence 
-  layer_dense(units = 128, activation = "relu") %>%
+  layer_max_pooling_2d(pool_size = c(2,2)) %>% # ... 0.25
+  # 5. dropout pour éviter le surapprentissage  #... NON on peut expliquer le fonctionnement 
+  layer_dropout(rate = 0.3) %>% # ... 0.25
+  # 6. on applatit la matrice de pixels dans le même but qu'au début du tp # ... 1   
+  layer_flatten() %>% # ... 0.25
+  # 7. on fait un réseau de neurones pour terminer avec deux "relu" qui vont accéler la convergence ## ... 0.5/1
+  layer_dense(units = 128, activation = "relu") %>% #... 0.25
   # 8.
-  layer_dense(units = 50, activation = "relu") %>%
-  # 9. et une logistique avec softmax pour finir
-  layer_dense(units = 10, activation = "softmax")
+  layer_dense(units = 50, activation = "relu") %>% #... 0.25
+  # 9. et une logistique avec softmax pour finir  # ... 0.5
+  layer_dense(units = 10, activation = "softmax") #... 0.25
 
 
 model %>% compile(  loss = "categorical_crossentropy", optimizer = optimizer_adam(),  metrics = c("accuracy"))
